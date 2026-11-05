@@ -160,6 +160,8 @@
       .feature.flip .text { order: 0; }
       .cards { grid-template-columns: 1fr 1fr; }
       nav a.plain { display: none; }
+      nav { gap: 8px; }
+      nav .btn.small { white-space: nowrap; }
       .f1 { left: -2%; } .f2 { right: -2%; }
       .hero .phone { transform: none; }
       .mobile-cta { display: block; position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 30; }
@@ -168,6 +170,8 @@
     }
     @media (max-width: 560px) {
       .cards { grid-template-columns: 1fr; }
+      nav .btn.small { padding: 8px 12px; font-size: 14px; min-height: 38px; }
+      .brand { font-size: 17px; gap: 8px; }
       .floater { font-size: 13px; padding: 10px 12px; }
       .cta .btn { flex: 1 1 auto; }
     }
@@ -182,7 +186,7 @@
     <nav>
       <a class="plain" href="#features">What it does</a>
       <a class="plain" href="#pricing">Pricing</a>
-      <a class="plain" href="https://beta.fleetoptima.org">Log in</a>
+      <a class="btn ghost small" href="https://beta.fleetoptima.org">Log in</a>
       <a class="btn primary small" href="https://beta.fleetoptima.org/#/signup">Start free</a>
     </nav>
   </div>

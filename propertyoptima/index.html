@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PropertyOptima: maintenance requests for every place you rent</title>
+  <meta name="description" content="Tenants report it from their phone, you work it on the record, maintenance reminds you, and you see what every property costs. $8 per property a month, 14 days free.">
+  <meta name="theme-color" content="#053C5E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23053C5E'/%3E%3Cpath d='M8 15.5 16 9l8 6.5V24a1 1 0 0 1-1 1h-4.5v-5.5h-5V25H9a1 1 0 0 1-1-1z' fill='%23fff'/%3E%3Ccircle cx='23.5' cy='9.5' r='3' fill='%23019FCB'/%3E%3C/svg%3E">
+  <meta property="og:title" content="PropertyOptima">
+  <meta property="og:description" content="Maintenance requests for every place you rent. $8 per property a month, 14 days free.">
+  <style>
+    :root {
+      --navy: #053C5E; --navy-2: #0A4E78; --blue: #019FCB; --blue-d: #0189AF;
+      --mint: #EEF6EE; --ink: #12202A; --muted: #546270; --line: #DCE4E8;
+      --bg: #FFFFFF; --soft: #F4F8FA; --due: #C62828; --soon: #E0A100;
+      --r: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+      font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--blue); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    /* top bar */
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.88);
+      backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid rgba(5,60,94,.08); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -.01em; }
+    .brand img { width: 32px; height: 32px; }
+    nav { display: flex; align-items: center; gap: 20px; }
+    nav a.plain { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; }
+    nav a.plain:hover { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+      padding: 12px 22px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+    .btn:active { transform: scale(.98); }
+    .btn.primary { background: var(--blue); color: #fff; box-shadow: 0 8px 20px rgba(1,159,203,.30); }
+    .btn.primary:hover { background: var(--blue-d); }
+    .btn.ghost { color: var(--navy); background: #fff; border: 1.5px solid rgba(5,60,94,.25); }
+    .btn.small { min-height: 40px; padding: 8px 16px; font-size: 15px; border-radius: 12px; box-shadow: none; }
+
+    /* hero */
+    .hero { position: relative; overflow: hidden; padding: 56px 0 72px;
+      background: radial-gradient(1200px 500px at 85% -10%, rgba(1,159,203,.16), transparent 60%),
+                  radial-gradient(900px 500px at -10% 110%, rgba(5,60,94,.10), transparent 60%),
+                  linear-gradient(180deg, var(--mint), #fff 85%); }
+    .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line); color: var(--navy); font-size: 13px; font-weight: 700; }
+    .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #2E7D32; box-shadow: 0 0 0 4px rgba(46,125,50,.15); }
+    h1 { color: var(--navy); font-size: clamp(34px, 5.2vw, 56px); line-height: 1.05; margin: 18px 0 18px; letter-spacing: -.025em; }
+    h1 .accent { color: var(--blue); }
+    .lead { font-size: clamp(17px, 2vw, 20px); color: var(--muted); margin: 0 0 28px; max-width: 560px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .fine { color: var(--muted); font-size: 14px; margin-top: 14px; }
+    .checks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; color: var(--navy); font-size: 15px; font-weight: 600; }
+    .checks span::before { content: "✓"; color: var(--blue); margin-right: 6px; font-weight: 800; }
+
+    /* phone mockup */
+    .phone { position: relative; width: min(320px, 78vw); aspect-ratio: 390 / 844; margin: 0 auto;
+      border-radius: 46px; padding: 12px; background: #0B1620;
+      box-shadow: 0 40px 80px -20px rgba(5,60,94,.45), 0 0 0 1.5px rgba(255,255,255,.08) inset; }
+    .phone::before { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 84px; height: 22px; border-radius: 14px; background: #0B1620; z-index: 2; }
+    /* A status bar strip (the app bar's white) so the notch sits above the app, like a real phone. */
+    .phone .screen { width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #fff; padding-top: 34px; }
+    .phone .screen::before { content: "9:41"; position: absolute; top: 22px; left: 42px; color: var(--navy); font-size: 12px; font-weight: 700; z-index: 3; }
+    .phone.dark .screen { background: #0B1620; }
+    .phone.dark .screen::before { color: #fff; }
+    .phone.dark .screen img { background: #0B1620; }
+    /* The dark-mode phone peeking out behind the hero phone. */
+    .phone-wrap .phone.back { position: absolute; top: -2%; right: -16%; z-index: 0; transform: rotate(9deg) scale(.84);
+      box-shadow: 0 30px 70px -20px rgba(34,211,245,.45), 0 0 0 1.5px rgba(34,211,245,.35) inset; }
+    .phone-wrap .phone.front { z-index: 1; }
+    .phone-wrap .floater { z-index: 2; }
+    @media (max-width: 1100px) { .phone-wrap .phone.back { display: none; } }
+    .phone .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; background: #F5F9FB; }
+    .hero .phone { transform: rotate(2deg); }
+    .floater { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 12px 14px; box-shadow: 0 18px 40px -12px rgba(5,60,94,.30); font-size: 14px; line-height: 1.35; }
+    .floater b { color: var(--navy); }
+    .phone-wrap { position: relative; }
+    .f1 { left: -10%; top: 46%; } .f2 { right: -4%; bottom: 10%; }
+    .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; margin-right: 6px; }
+    .tag.due { color: var(--due); } .tag.soon { color: var(--soon); }
+
+    /* sections */
+    section { padding: 88px 0; }
+    section.soft { background: var(--soft); }
+    .kicker { color: var(--blue); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+    h2 { color: var(--navy); font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; margin: 8px 0 12px; letter-spacing: -.02em; }
+    .sub { color: var(--muted); font-size: 18px; margin: 0 0 40px; max-width: 640px; }
+
+    .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin: 0 0 96px; }
+    .feature:last-child { margin-bottom: 0; }
+    .feature.flip .text { order: 2; }
+    .num { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--mint);
+      color: var(--navy); font-weight: 800; margin-bottom: 14px; }
+    .feature h3 { color: var(--navy); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; margin: 0 0 10px; letter-spacing: -.01em; }
+    .feature p { margin: 0 0 14px; }
+    .feature ul { list-style: none; margin: 0; padding: 0; }
+    .feature li { position: relative; padding-left: 28px; margin: 10px 0; color: var(--muted); }
+    .feature li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--mint); box-shadow: inset 0 0 0 5px var(--blue); }
+
+    .stack { display: grid; gap: 16px; max-width: 420px; margin: 0 auto; }
+    .shot { border-radius: var(--r); overflow: hidden; background: #fff; border: 1px solid var(--line);
+      box-shadow: 0 24px 50px -18px rgba(5,60,94,.30); }
+
+    /* cards */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -18px rgba(5,60,94,.35); }
+    .card .ic { width: 42px; height: 42px; border-radius: 12px; background: var(--mint); display: grid; place-items: center; font-size: 20px; margin-bottom: 12px; }
+    .card h4 { margin: 0 0 6px; color: var(--navy); font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    /* pricing */
+    .price { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+    .price-box { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--navy), var(--navy-2)); color: #fff;
+      border-radius: 28px; padding: 36px; box-shadow: 0 30px 60px -24px rgba(5,60,94,.6); }
+    .price-box::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(1,159,203,.45), transparent 70%); }
+    .price-box .big { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+    .price-box .per { font-size: 18px; opacity: .85; margin-top: 4px; }
+    .price-box ul { list-style: none; padding: 0; margin: 22px 0 26px; }
+    .price-box li { margin: 10px 0; padding-left: 26px; position: relative; }
+    .price-box li::before { content: "✓"; position: absolute; left: 0; color: #7FD8F2; font-weight: 800; }
+    .price-box .btn { width: 100%; }
+
+    /* faq */
+    .faq { max-width: 780px; }
+    details { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; margin: 0 0 12px; }
+    summary { cursor: pointer; font-weight: 700; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--blue); font-size: 22px; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 12px 0 0; color: var(--muted); }
+
+    .closing { text-align: center; background: linear-gradient(180deg, #fff, var(--mint)); }
+    .closing h2 { margin-bottom: 22px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { color: var(--muted); }
+
+    /* phone sticky CTA */
+    .mobile-cta { display: none; }
+
+    @media (max-width: 900px) {
+      section { padding: 64px 0; }
+      .hero { padding: 36px 0 56px; }
+      .hero .wrap, .feature, .price { grid-template-columns: 1fr; gap: 36px; }
+      .feature { margin-bottom: 72px; }
+      .feature.flip .text { order: 0; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      nav a.plain { display: none; }
+      nav { gap: 8px; }
+      nav .btn.small { white-space: nowrap; }
+      .f1 { left: -2%; } .f2 { right: -2%; }
+      .hero .phone { transform: none; }
+      .mobile-cta { display: block; position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 30; }
+      .mobile-cta .btn { width: 100%; box-shadow: 0 14px 30px -8px rgba(1,159,203,.6); }
+      footer { padding-bottom: 96px; }
+    }
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+      nav .btn.small { padding: 8px 12px; font-size: 14px; min-height: 38px; }
+      .brand { font-size: 17px; gap: 8px; }
+      .floater { font-size: 13px; padding: 10px 12px; }
+      .cta .btn { flex: 1 1 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#053C5E"/><path d="M8 15.5 16 9l8 6.5V24a1 1 0 0 1-1 1h-4.5v-5.5h-5V25H9a1 1 0 0 1-1-1z" fill="#fff"/><circle cx="23.5" cy="9.5" r="3" fill="#019FCB"/></svg>PropertyOptima</a>
+    <nav>
+      <a class="plain" href="#features">What it does</a>
+      <a class="plain" href="#pricing">Pricing</a>
+      <a class="btn ghost small" href="https://beta.fleetoptima.org/?for=properties">Log in</a>
+      <a class="btn primary small" href="https://beta.fleetoptima.org/?for=properties#/signup">Start free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill"><span class="dot"></span>Live now · 14 days free</span>
+        <h1>Maintenance requests, handled. <span class="accent">For every place you rent.</span></h1>
+        <p class="lead">Tenants report it from their phone. You and your maintenance person work it, and every step is on the record. PropertyOptima reminds you what's due, like filters and smoke detectors, and shows you what every property really costs.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://beta.fleetoptima.org/?for=properties#/signup">Start your 14 days free</a>
+          <a class="btn ghost" href="#features">See how it works</a>
+        </div>
+        <div class="checks"><span>No card to start</span><span>Works on any phone</span><span>Nothing for tenants to install</span></div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone front"><div class="screen"><img src="img/home.png" alt="PropertyOptima on a phone: Good morning, Bruce, 6 open requests, 2 due and 1 coming up, then the maintenance list"></div></div>
+        <div class="floater f1"><span class="tag due">URGENT</span><b>Maple Duplex A</b><br>No hot water · in progress</div>
+        <div class="floater f2"><span class="tag soon">COMING UP</span><b>Ridge House</b><br>Change HVAC filter</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="kicker">How it works</div>
+      <h2>Built for landlords, not leasing offices.</h2>
+      <p class="sub">The leaks, the locks and the filters you already deal with, without the phone tag.</p>
+
+      <div class="feature">
+        <div class="text">
+          <div class="num">1</div>
+          <h3>Tenants report it from their phone</h3>
+          <p>No more texts at midnight with half the story. Tenants pick their place, say what's wrong, and mark it urgent if it can't wait. If it's a real emergency, the app tells them to call 911 first.</p>
+          <ul>
+            <li>Tenants only ever see their own place and their own requests</li>
+            <li>They see when it's started and when it's done, so they stop asking</li>
+            <li>Invite them with a link or a QR code. They pick their own password</li>
+          </ul>
+        </div>
+        <div class="phone"><div class="screen"><img src="img/new-request.png" alt="A tenant's new maintenance request: bathroom sink clogged, marked urgent, with the call 911 first note"></div></div>
+      </div>
+
+      <div class="feature flip">
+        <div class="text">
+          <div class="num">2</div>
+          <h3>Work it, on the record</h3>
+          <p>You or your maintenance person start it, add notes, log the plumber or the HVAC guy and what they charged, and close it out. Every step says who did it and when, and it can't be edited after the fact.</p>
+          <ul>
+            <li>Urgent requests jump the line, and Home counts them first</li>
+            <li>Email alerts for new requests, or only the urgent ones</li>
+            <li>A record you can point to when a deposit or a dispute comes up</li>
+          </ul>
+        </div>
+        <div class="stack">
+          <div class="shot"><img src="img/request-top.png" alt="A maintenance request: no hot water at Maple Duplex A, in progress and urgent"></div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="text">
+          <div class="num">3</div>
+          <h3>Maintenance that reminds you</h3>
+          <p>"Change the HVAC filter every 3 months. Test the smoke detectors every 6." Set it once for every property, and PropertyOptima keeps the dates for each one.</p>
+          <ul>
+            <li>Home shows what needs you: open requests, what's due, what's coming up</li>
+            <li>When it's due, the request makes itself</li>
+            <li>Mark it done and the clock starts over</li>
+          </ul>
+        </div>
+        <div class="stack">
+          <div class="shot"><img src="img/maintenance.png" alt="Maintenance coming up: HVAC filters due at Maple Duplex A and B, coming up at Ridge House"></div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="text">
+          <div class="num">4</div>
+          <h3>See what each property costs</h3>
+          <p>One page that answers "what is this place costing me?" Every plumber, locksmith and roofer you paid, by month and by property, and the jobs still waiting on a receipt.</p>
+          <ul>
+            <li>The last month, 3 months, 6 months or any range</li>
+            <li>The properties costing the most, ranked</li>
+            <li>Only the people you choose can see the money</li>
+          </ul>
+        </div>
+        <div class="phone"><div class="screen"><img src="img/costs.png" alt="Costs: $3,145 on outside services in 6 months, by month and by property"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap">
+      <div class="kicker">The rest</div>
+      <h2>A few houses. Grown-up tools.</h2>
+      <p class="sub">The stuff that keeps rentals in shape, without a manual.</p>
+      <div class="cards">
+        <div class="card"><div class="ic">🏠</div><h4>Each tenant, their own place</h4><p>Roommates share a place and see each other's requests. Nobody sees the place next door.</p></div>
+        <div class="card"><div class="ic">🧰</div><h4>Your maintenance person</h4><p>They see every request and work them. You decide what else they can see, and whether that includes the money.</p></div>
+        <div class="card"><div class="ic">📜</div><h4>History you can trust</h4><p>Request records can't be edited or deleted. Mistakes get corrected with a note, not erased.</p></div>
+        <div class="card"><div class="ic">🧹</div><h4>Only what you need</h4><p>No parts inventory or extra screens unless you want them. Every feature is there, and you turn off the ones you don't use.</p></div>
+        <div class="card"><div class="ic">📱</div><h4>Nothing to install</h4><p>It runs in the browser on any phone. Tenants open a link and they're in.</p></div>
+        <div class="card"><div class="ic">📣</div><h4>A real person on the other end</h4><p>Something wrong? Tap "Yell at us" on any page. It comes straight to us.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap price">
+      <div>
+        <div class="kicker">Pricing</div>
+        <h2>One price. Pay for what you rent.</h2>
+        <p class="sub">No tiers, no "contact sales," no per-tenant fees. Bring every tenant and your maintenance person. You only pay for the properties.</p>
+        <p class="fine">Adding a property mid-month? It's prorated, and the app shows you the exact amount before anything is charged. Sold one? Retire it and lower your plan from your next bill.</p>
+      </div>
+      <div class="price-box">
+        <div class="big">$8</div>
+        <div class="per">per property, per month</div>
+        <ul>
+          <li>14 days free, up to 10 properties</li>
+          <li>Unlimited tenants and staff</li>
+          <li>Every feature included, and you can turn off the ones you don't use</li>
+          <li>Cancel any time</li>
+        </ul>
+        <a class="btn primary" href="https://beta.fleetoptima.org/?for=properties#/signup">Start free</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap faq">
+      <div class="kicker">Questions</div>
+      <h2>Good to know</h2>
+      <details><summary>What counts as a property?</summary><p>Each place you rent out: a house, each unit of a duplex, a mobile home. Tenants, your maintenance person and the requests themselves are free.</p></details>
+      <details><summary>Do my tenants need to install anything?</summary><p>No. PropertyOptima runs in the browser on any phone or computer. You send them a link or show them a QR code, they pick a password, and they're in. On a phone they can add it to the home screen and it opens like an app.</p></details>
+      <details><summary>What happens when the trial ends?</summary><p>Pick a plan and keep going. If you don't, your data stays put and PropertyOptima goes read-only: you can see everything, just not add or change anything, until you pick a plan.</p></details>
+      <details><summary>Why do I see the FleetOptima name in places?</summary><p>PropertyOptima is built on FleetOptima, the same app that runs maintenance for work fleets, set up for rentals. Same company, same people. You'll see the FleetOptima name in a few spots while PropertyOptima gets its own home.</p></details>
+      <details><summary>Is this a finished product?</summary><p>Yes. Everything on this page works today. What comes next is shaped by what landlords ask for, so <a href="mailto:support@fleetoptima.org">tell us what you need</a>.</p></details>
+      <details><summary>Who's behind it?</summary><p>FleetOptima LLC, a small company in Alabama. Email <a href="mailto:support@fleetoptima.org">support@fleetoptima.org</a> and a person writes back.</p></details>
+    </div>
+  </section>
+
+  <section id="talk">
+    <div class="wrap">
+      <div class="kicker">Talk to us</div>
+      <h2>Stuck, or missing something? Email us.</h2>
+      <p class="sub">We're small on purpose. When you write in, the person who built it writes back.</p>
+      <div class="cards">
+        <div class="card"><div class="ic">🧭</div><h4>Help getting set up</h4><p>Send us your list of properties and tenants, even a spreadsheet or a photo of a notepad, and we'll help you get it in.</p></div>
+        <div class="card"><div class="ic">🛠️</div><h4>Need something it doesn't do?</h4><p>Tell us. The next features come from what real landlords ask for, and yours could be next.</p></div>
+        <div class="card"><div class="ic">💬</div><h4>Just have a question?</h4><p>Pricing, tenants, whether it fits how you run things. Ask away, no sales pitch.</p></div>
+      </div>
+      <div class="cta" style="margin-top: 24px;"><a class="btn primary" href="mailto:support@fleetoptima.org">Email support@fleetoptima.org</a></div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Every request, every property, one place.</h2>
+      <a class="btn primary" href="https://beta.fleetoptima.org/?for=properties#/signup">Start your 14 days free</a>
+      <div class="fine">No card to start.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 FleetOptima LLC &middot; <a href="mailto:support@fleetoptima.org">support@fleetoptima.org</a></div>
+    <div><a href="https://beta.fleetoptima.org/#/terms">Terms of Service</a> &middot; <a href="https://beta.fleetoptima.org/#/privacy">Privacy Policy</a> &middot; <a href="https://beta.fleetoptima.org/?for=properties">Log in</a></div>
+  </div>
+</footer>
+
+<div class="mobile-cta"><a class="btn primary" href="https://beta.fleetoptima.org/?for=properties#/signup">Start free · 14 days</a></div>
+
+</body>
+</html>

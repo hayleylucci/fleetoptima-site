@@ -64,6 +64,8 @@
 
     /* demo video */
     .demo { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    .demo h2 { font-size: clamp(34px, 4.6vw, 52px); margin-bottom: 6px; }
+    .subhead { color: var(--blue); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.25; margin: 0 0 16px; letter-spacing: -.01em; }
     /* Same status strip as the other phones (9:41 + notch above the app); the video fits under it. */
     .phone .screen.video-screen video { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
     /* Until it plays: dim the frame, big pulsing play button, "Watch the demo · 1:36" so it reads as a video. */
@@ -241,8 +243,8 @@
   <section id="demo" class="soft">
     <div class="wrap demo">
       <div>
-        <div class="kicker">See it work</div>
-        <h2>A broken chipper, start to finish.</h2>
+        <h2>See it work</h2>
+        <h3 class="subhead">A broken chipper, start to finish.</h3>
         <p class="sub">An operator reports a hydraulic leak from the field. The mechanic sees it, pulls the part, closes it out with the hours. The schedule makes the next job by itself, and the owner sees what it all cost.</p>
         <p class="fine">About a minute and a half. No sound needed.</p>
       </div>

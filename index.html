@@ -60,6 +60,18 @@
     .fine { color: var(--muted); font-size: 14px; margin-top: 14px; }
     .checks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; color: var(--navy); font-size: 15px; font-weight: 600; }
     .checks span::before { content: "✓"; color: var(--blue); margin-right: 6px; font-weight: 800; }
+    .who { color: var(--muted); font-size: 15px; margin: 16px 0 0; max-width: 560px; }
+
+    /* demo video */
+    .demo { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    /* Same status strip as the other phones (9:41 + notch above the app); the video fits under it. */
+    .phone .screen.video-screen video { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
+    .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 4; border: 0; cursor: pointer;
+      width: 84px; height: 84px; border-radius: 50%; background: rgba(1,159,203,.92); color: #fff; font-size: 30px; padding-left: 6px;
+      box-shadow: 0 14px 30px -8px rgba(1,159,203,.7), 0 0 0 10px rgba(1,159,203,.18); transition: transform .15s; }
+    .play:hover { transform: translate(-50%, -50%) scale(1.06); }
+    .play[hidden] { display: none; }
+    @media (max-width: 900px) { .demo { grid-template-columns: 1fr; gap: 28px; } }
 
     /* phone mockup */
     .phone { position: relative; width: min(320px, 78vw); aspect-ratio: 390 / 844; margin: 0 auto;
@@ -198,12 +210,13 @@
       <div>
         <span class="pill"><span class="dot"></span>Live now · 14 days free</span>
         <h1>Maintenance, parts and costs for <span class="accent">every machine you run.</span></h1>
-        <p class="lead">Your whole fleet, not just the trucks: mowers, chippers, stump grinders, trailers. FleetOptima tells you what's due, writes the work order, tracks the parts that went into it, and shows you what every machine really costs.</p>
+        <p class="lead">Not just the trucks: mowers, chippers, trailers, compressors, ovens and the saws in the shed. Scan a VIN sticker and the machine's in. FleetOptima tells you what's due, writes the work order, tracks the parts that went into it, and shows you what every machine really costs.</p>
         <div class="cta">
           <a class="btn primary" href="https://beta.fleetoptima.org/#/signup">Start your 14 days free</a>
-          <a class="btn ghost" href="#features">See how it works</a>
+          <a class="btn ghost" href="#demo">&#9654; Watch the demo</a>
         </div>
-        <div class="checks"><span>No card to start</span><span>Works on any phone</span><span>Nothing to install</span></div>
+        <div class="checks"><span>No card to start</span><span>Works on any phone</span><span>We'll help you set it up</span></div>
+        <p class="who">For tree services, landscapers, contractors, fab and machine shops, powder coaters, farms: anyone with equipment to keep running.</p>
       </div>
       <div class="phone-wrap">
         <div class="phone dark back" aria-hidden="true"><div class="screen"><img src="img/home-dark.png" alt=""></div></div>
@@ -213,6 +226,23 @@
       </div>
     </div>
   </div>
+
+  <section id="demo" class="soft">
+    <div class="wrap demo">
+      <div>
+        <div class="kicker">See it work</div>
+        <h2>A broken chipper, start to finish.</h2>
+        <p class="sub">An operator reports a hydraulic leak from the field. The mechanic sees it, pulls the part, closes it out with the hours. The schedule makes the next job by itself, and the owner sees what it all cost.</p>
+        <p class="fine">About a minute and a half. No sound needed.</p>
+      </div>
+      <div class="phone"><div class="screen video-screen">
+        <video controls playsinline preload="none" poster="video/demo-poster.jpg" aria-label="FleetOptima demo: an operator reports a hydraulic leak on a chipper, the mechanic fixes it and logs the part, maintenance and costs">
+          <source src="video/fleetoptima-demo.mp4" type="video/mp4">
+        </video>
+        <button class="play" type="button" aria-label="Play the demo">&#9654;</button>
+      </div></div>
+    </div>
+  </section>
 
   <section id="features">
     <div class="wrap">
@@ -242,6 +272,7 @@
           <h3>Work orders from the phone in your pocket</h3>
           <p>Operators report a problem in seconds, and a machine that's down can be marked urgent so it jumps the line. Mechanics start it, pull parts, add notes and close it out. Every step is on the record: who did it and when.</p>
           <ul>
+            <li>Scan a VIN sticker and the make, model and year fill in</li>
             <li>Scan a part's barcode with the camera</li>
             <li>Read an odometer, an hour meter or a serial number off a photo</li>
             <li>Search any list, and filter jobs: open, in progress, done</li>
@@ -291,8 +322,8 @@
       <div class="cards">
         <div class="card"><div class="ic">🔐</div><h4>Groups and permissions</h4><p>Operators see their own jobs. Mechanics see the shop. Owners see the money. You decide.</p></div>
         <div class="card"><div class="ic">📲</div><h4>Invite your crew</h4><p>Send a link or show a QR code. They pick their own password and they're in.</p></div>
-        <div class="card"><div class="ic">🚜</div><h4>Not just vehicles</h4><p>Anything that runs on miles or hours: chainsaws, generators, forklifts, pressure washers.</p></div>
-        <div class="card"><div class="ic">📜</div><h4>History you can trust</h4><p>Work order records can't be edited or deleted. Mistakes get corrected with a note, not erased.</p></div>
+        <div class="card"><div class="ic">🚜</div><h4>Not just vehicles</h4><p>Anything that runs on miles, hours or the calendar: chainsaws, generators, forklifts, compressors, ovens, spray booths.</p></div>
+        <div class="card"><div class="ic">📜</div><h4>History you can trust</h4><p>Every change to a job is logged with who and when, and that log can't be edited or erased.</p></div>
         <div class="card"><div class="ic">⏱️</div><h4>Miles and hours in one tap</h4><p>Operators update their machine's miles or hours right from the home screen, so the maintenance counts stay true.</p></div>
         <div class="card"><div class="ic">📣</div><h4>A real person on the other end</h4><p>Something wrong? Tap "Yell at us" on any page. It comes straight to us.</p></div>
       </div>
@@ -314,6 +345,7 @@
         <ul>
           <li>14 days free, up to 10 machines and 20 small tools</li>
           <li>Unlimited people</li>
+          <li>Help getting set up: send a photo of your list or whiteboard</li>
           <li>Every feature included, and you can turn off the ones you don't use</li>
           <li>Cancel any time</li>
         </ul>
@@ -326,10 +358,10 @@
     <div class="wrap faq">
       <div class="kicker">Questions</div>
       <h2>Good to know</h2>
-      <details><summary>Machine or small tool?</summary><p>A machine has a VIN or a meter: trucks, trailers, mowers, chippers, generators, pressure washers. $8 a month each. A small tool has neither: chainsaws, pole saws, blowers, trimmers, and the backups for them. $1 a month each, so you can track all of it. People, parts and work orders are free.</p></details>
+      <details><summary>Machine or small tool?</summary><p>A machine is any equipment you maintain: anything with a VIN, a meter or a service schedule. Work trucks, trailers, mowers, chippers, generators, compressors, ovens, spray booths. $8 a month each. A small tool is the handheld stuff: chainsaws, pole saws, blowers, trimmers, and the backups for them. $1 a month each, so you can track all of it. People, parts and work orders are free.</p></details>
       <details><summary>Do I need to install anything?</summary><p>No. FleetOptima runs in the browser on any phone or computer. On a phone you can add it to your home screen and it opens like an app.</p></details>
       <details><summary>What happens when the trial ends?</summary><p>Pick a plan and keep going. If you don't, your data stays put and FleetOptima goes read-only: you can see everything, just not add or change anything, until you pick a plan.</p></details>
-      <details><summary>Is this a finished product?</summary><p>Yes. Everything on this page works today. What comes next is shaped by what customers ask for, so <a href="mailto:support@fleetoptima.org">tell us what you need</a>.</p></details>
+      <details><summary>Is this a finished product?</summary><p>Everything on this page works today, and real companies can use it right now. The app lives at beta.fleetoptima.org while FleetOptima is new, and what comes next is shaped by what customers ask for, so <a href="mailto:support@fleetoptima.org">tell us what you need</a>.</p></details>
       <details><summary>Who's behind it?</summary><p>FleetOptima LLC, a small company in Alabama. Email <a href="mailto:support@fleetoptima.org">support@fleetoptima.org</a> and a person writes back.</p></details>
     </div>
   </section>
@@ -350,7 +382,7 @@
 
   <section class="closing">
     <div class="wrap">
-      <h2>Your fleet, finally in one place.</h2>
+      <h2>Every machine, finally in one place.</h2>
       <a class="btn primary" href="https://beta.fleetoptima.org/#/signup">Start your 14 days free</a>
       <div class="fine">No card to start.</div>
     </div>
@@ -365,6 +397,17 @@
 </footer>
 
 <div class="mobile-cta"><a class="btn primary" href="https://beta.fleetoptima.org/#/signup">Start free · 14 days</a></div>
+
+<script>
+  // Big play button over the demo video; it hides once the video plays.
+  (function () {
+    var v = document.querySelector('#demo video'), b = document.querySelector('#demo .play');
+    if (!v || !b) return;
+    b.addEventListener('click', function () { v.play(); });
+    v.addEventListener('play', function () { b.hidden = true; });
+    v.addEventListener('ended', function () { b.hidden = false; });
+  })();
+</script>
 
 </body>
 </html>

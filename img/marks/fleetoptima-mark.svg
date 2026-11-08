@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 32 32">
+  <!-- FleetOptima mark: same tile as the PropertyOptima house. The ramp and sun from the
+       FleetOptima logo, in white, with the blue dot as the sun. -->
+  <rect width="32" height="32" rx="9" fill="#053C5E"/>
+  <path d="M6.5 24.5 19 13.2 25.5 24.5Z" fill="#fff"/>
+  <path d="M11.8 24.5 19.1 17.9 22.9 24.5Z" fill="#053C5E"/>
+  <path d="M13.7 24.5 18.3 20.4 20.7 24.5Z" fill="#fff"/>
+  <circle cx="22.2" cy="9.6" r="3" fill="#019FCB"/>
+</svg>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<!-- Parody page. Not linked from anywhere on purpose. The real site is the one at /. -->
+<title>🚀 FleetOptima™ AI — The World's #1 Disruptive Synergy-First Maintenance Experience Platform™</title>
+<style>
+  :root { --hype: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc); }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: #0b0420; color: #fff; overflow-x: hidden; }
+  a { color: #00ffcc; }
+  .topbar { position: sticky; top: 0; z-index: 50; background: var(--hype); background-size: 300% 100%; animation: slide 4s linear infinite;
+    color: #000; font-weight: 900; text-align: center; padding: 10px; font-size: 15px; }
+  @keyframes slide { to { background-position: 300% 0; } }
+  .marquee { overflow: hidden; white-space: nowrap; background: #ffcc00; color: #000; font-weight: 800; padding: 6px 0; }
+  .marquee span { display: inline-block; padding-left: 100%; animation: mq 22s linear infinite; }
+  @keyframes mq { to { transform: translateX(-100%); } }
+  nav { display: flex; align-items: center; gap: 18px; padding: 16px 28px; flex-wrap: wrap; }
+  nav b { font-size: 22px; } nav span { opacity: .8; font-size: 14px; }
+  nav .btn { margin-left: auto; }
+  .btn { display: inline-block; background: var(--hype); background-size: 300% 100%; animation: slide 3s linear infinite; color: #000; font-weight: 900;
+    padding: 14px 22px; border-radius: 999px; text-decoration: none; border: 0; cursor: pointer; font-size: 16px; box-shadow: 0 0 30px #ff00cc88; }
+  .hero { text-align: center; padding: 50px 20px 30px; background: radial-gradient(800px 400px at 50% 0, #ff00cc55, transparent); }
+  .eyebrow { display: inline-block; border: 1px solid #00ffcc; color: #00ffcc; border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 800; letter-spacing: .1em; }
+  h1 { font-size: clamp(34px, 6vw, 72px); line-height: 1.02; margin: 18px auto; max-width: 1000px; letter-spacing: -.03em; }
+  h1 .g { background: var(--hype); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: slide 4s linear infinite; }
+  .sub { font-size: 20px; max-width: 760px; margin: 0 auto 26px; opacity: .85; }
+  .tiny { font-size: 11px; opacity: .5; margin-top: 10px; }
+  .urgent { margin: 24px auto; max-width: 620px; background: #ff004422; border: 2px dashed #ff0044; border-radius: 14px; padding: 14px; font-weight: 800; }
+  .urgent .t { font-size: 34px; font-variant-numeric: tabular-nums; color: #ff4477; }
+  .logos { text-align: center; padding: 20px; opacity: .7; font-weight: 800; letter-spacing: .08em; }
+  .logos span { margin: 0 14px; display: inline-block; }
+  section { padding: 40px 24px; max-width: 1100px; margin: 0 auto; }
+  h2 { font-size: 38px; text-align: center; margin: 0 0 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: #1a0d3a; border: 1px solid #ff00cc55; border-radius: 18px; padding: 20px; }
+  .card h3 { margin: 0 0 8px; } .card p { margin: 0; opacity: .85; }
+  .stat { text-align: center; } .stat b { display: block; font-size: 44px; background: var(--hype); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat small { opacity: .5; font-size: 11px; }
+  .t-card { background: #fff; color: #222; border-radius: 18px; padding: 18px; }
+  .t-card .stars { color: #f5b301; font-size: 20px; } .t-card small { color: #777; }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .tier { background: #1a0d3a; border: 2px solid #3333ff; border-radius: 18px; padding: 18px; text-align: center; }
+  .tier.pop { border-color: #ffcc00; transform: scale(1.04); box-shadow: 0 0 40px #ffcc0055; }
+  .tier .old { text-decoration: line-through; opacity: .5; } .tier .price { font-size: 36px; font-weight: 900; }
+  .tier ul { text-align: left; font-size: 14px; opacity: .85; padding-left: 18px; }
+  .faq details { background: #1a0d3a; border-radius: 12px; padding: 14px 18px; margin: 10px 0; } .faq summary { font-weight: 800; cursor: pointer; }
+  footer { text-align: center; padding: 40px 20px 120px; opacity: .6; font-size: 13px; }
+  /* annoyances */
+  .modal-bg { position: fixed; inset: 0; background: #000b; z-index: 100; display: none; align-items: center; justify-content: center; }
+  .modal { background: #fff; color: #111; border-radius: 20px; padding: 28px; max-width: 440px; text-align: center; position: relative; }
+  .modal h3 { font-size: 26px; margin: 6px 0 10px; } .modal input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; margin: 8px 0; font-size: 16px; }
+  .modal .no { display: block; margin-top: 12px; font-size: 12px; color: #888; cursor: pointer; text-decoration: underline; }
+  .modal .x { position: absolute; top: 8px; right: 12px; font-size: 10px; color: #ccc; cursor: pointer; }
+  .toast { position: fixed; left: 16px; bottom: 16px; z-index: 60; background: #fff; color: #111; border-radius: 14px; padding: 12px 14px; max-width: 320px;
+    box-shadow: 0 10px 30px #0008; font-size: 14px; display: none; } .toast b { color: #ff00cc; }
+  .chat { position: fixed; right: 16px; bottom: 16px; z-index: 60; } .chat .bubble { background: #fff; color: #111; border-radius: 16px 16px 4px 16px; padding: 12px 14px;
+    max-width: 280px; box-shadow: 0 10px 30px #0008; font-size: 14px; margin-bottom: 8px; display: none; }
+  .chat .head { width: 62px; height: 62px; border-radius: 50%; background: var(--hype); background-size: 300% 100%; animation: slide 3s linear infinite;
+    display: grid; place-items: center; font-size: 30px; margin-left: auto; cursor: pointer; position: relative; }
+  .chat .head i { position: absolute; top: -4px; right: -4px; background: red; color: #fff; font-style: normal; font-size: 12px; font-weight: 900; border-radius: 999px; padding: 2px 7px; }
+  .cookie { position: fixed; left: 50%; transform: translateX(-50%); bottom: 90px; z-index: 70; background: #111; border: 1px solid #333; border-radius: 14px; padding: 14px 16px;
+    max-width: 560px; width: calc(100% - 32px); font-size: 13px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .cookie button { border: 0; border-radius: 8px; padding: 8px 12px; font-weight: 800; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="topbar">🔥 BLACK FRIDAY CYBER MONDAY PRESIDENTS' DAY MEGA SALE 🔥 98% OFF FOR THE NEXT <span class="cd">09:59</span> ONLY!!! (sale renews every 10 minutes forever)</div>
+<div class="marquee"><span>⚡ AS SEEN ON: A TRUCK · ANOTHER TRUCK · THE INTERNET · 🚀 NOW WITH AI · NOW WITH BLOCKCHAIN · NOW WITH AI ON THE BLOCKCHAIN · 🧠 POWERED BY QUANTUM SYNERGY™ · 🔒 SOC 2 TYPE 7 COMPLIANT (pending) · ⭐ RATED #1 BY US ⚡</span></div>
+
+<nav>
+  <b>🚀 FleetOptima™ AI Pro Max Ultra</b>
+  <span>Solutions</span><span>Platform</span><span>Ecosystem</span><span>Thought Leadership</span><span>Synergies</span><span>Resources (none)</span>
+  <a class="btn" href="#tiers">BOOK A DEMO WITH A GROWTH NINJA 🥷</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">🏆 #1 MAINTENANCE PLATFORM IN THE ENTIRE GALAXY*</div>
+  <h1>Revolutionize your <span class="g">wrench-to-value pipeline</span> with AI-native, cloud-first, people-last asset intelligence.</h1>
+  <p class="sub">FleetOptima™ leverages best-in-class synergistic paradigms to 10x your oil-change velocity, unlock mission-critical chipper alignment, and empower your mower to become the best version of itself.</p>
+  <a class="btn" href="#tiers">START MY FREE TRIAL* NOW!!! 👉👉👉</a>
+  <div class="tiny">*Free trial requires credit card, social security number, blood type and a 3-year commitment. Cancellation available by fax, Tuesdays, 2:14–2:16 AM PST.</div>
+  <div class="urgent">⚠️ HURRY!!! ONLY <span class="spots">3</span> SPOTS LEFT AT THIS PRICE ⚠️<br>Offer expires in <span class="t cd">09:59</span><br><small>(there are infinite spots. this number is random. we are not sorry.)</small></div>
+</div>
+
+<div class="logos">TRUSTED BY: <span>🏢 ACME CORP</span><span>🏭 GLOBEX</span><span>🛢️ A GUY NAMED DALE</span><span>🦅 'MURICA INC</span><span>🧃 YOUR MOM</span></div>
+
+<section>
+  <h2>The numbers don't lie 📈 (we do)</h2>
+  <div class="grid">
+    <div class="stat"><b>847%</b>more synergy<br><small>vs. doing nothing</small></div>
+    <div class="stat"><b>10,000+</b>happy fleets<br><small>citation needed</small></div>
+    <div class="stat"><b>∞x</b>ROI<br><small>we divided by zero</small></div>
+    <div class="stat"><b>99.9%</b>of dentists<br><small>were not asked</small></div>
+  </div>
+</section>
+
+<section>
+  <h2>Enterprise-grade features for your ✨journey✨</h2>
+  <div class="grid">
+    <div class="card"><h3>🤖 AI-Powered Oil Changes</h3><p>Our proprietary neural net looks at your truck and says "probably needs oil." Revolutionary.</p></div>
+    <div class="card"><h3>⛓️ Blockchain Work Orders</h3><p>Every brake job is minted as an NFT so you can't sell it later either.</p></div>
+    <div class="card"><h3>🧘 Mindful Maintenance</h3><p>Before replacing the chipper knives, take a moment to thank them for their service.</p></div>
+    <div class="card"><h3>📊 Dashboards of Dashboards</h3><p>A dashboard that shows how many dashboards you have. Dashboard sold separately.</p></div>
+    <div class="card"><h3>🌐 Omnichannel Mower Engagement</h3><p>Reach your mower on email, SMS, LinkedIn, and in its dreams.</p></div>
+    <div class="card"><h3>🦄 Thought Leadership Mode</h3><p>Every completed job auto-posts to LinkedIn: "I was humbled to change a tire today. Here's what it taught me about B2B sales. 🧵"</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Don't take our word for it 💬</h2>
+  <div class="grid">
+    <div class="t-card"><div class="stars">★★★★★</div>"I don't own any equipment, but this changed my life."<br><small>— Brad, Chief Vibes Officer, Brad Holdings LLC</small></div>
+    <div class="t-card"><div class="stars">★★★★★</div>"Our chipper has never felt so seen."<br><small>— Definitely A Real Customer</small></div>
+    <div class="t-card"><div class="stars">★★★★★</div>"5 stars. Would let a Growth Ninja into my home again."<br><small>— Sandra, Verified Buyer (unverified)</small></div>
+    <div class="t-card"><div class="stars">★★★★☆</div>"lost a star because the popup asked me to subscribe 41 times. the 42nd time I did."<br><small>— Gary</small></div>
+  </div>
+</section>
+
+<section id="tiers">
+  <h2>Choose your synergy tier 💎</h2>
+  <div class="tiers">
+    <div class="tier"><h3>Starter</h3><div class="old">$999/mo</div><div class="price">$899/mo</div><ul><li>1 machine</li><li>Read-only</li><li>Can't read</li></ul><a class="btn" href="#">Meh</a></div>
+    <div class="tier"><h3>Pro</h3><div class="old">$4,999/mo</div><div class="price">$4,998/mo</div><ul><li>2 machines</li><li>Access to the Synergy Hub™</li><li>Synergy Hub™ not included</li></ul><a class="btn" href="#">Fine</a></div>
+    <div class="tier pop"><h3>⭐ PLATINUM DIAMOND ⭐</h3><div class="old">$99,999/mo</div><div class="price">Contact Sales</div><ul><li>Unlimited machines (up to 3)</li><li>Dedicated Growth Ninja who calls daily</li><li>Quarterly business review of your oil</li></ul><a class="btn" href="#">MOST POPULAR 🔥</a></div>
+    <div class="tier"><h3>Enterprise</h3><div class="old">vibes</div><div class="price">🤫</div><ul><li>If you have to ask</li><li>You can't afford it</li><li>Please ask though</li></ul><a class="btn" href="#">Schedule 6 calls</a></div>
+  </div>
+  <p class="tiny" style="text-align:center">All plans billed annually, quarterly, monthly and also randomly. Prices shown before taxes, fees, convenience fees, inconvenience fees and the Dale Surcharge.</p>
+</section>
+
+<section class="faq">
+  <h2>FAQ (Frequently Avoided Questions)</h2>
+  <details><summary>Is it actually AI?</summary><p>It is an if-statement in a trench coat.</p></details>
+  <details><summary>How do I cancel?</summary><p>Great question! Let's hop on a quick 45-minute call with our Retention Success Ninja to unpack that. 😊</p></details>
+  <details><summary>What does FleetOptima actually do?</summary><p>Leverages synergy.</p></details>
+  <details><summary>No really, what does it do?</summary><p>Tracks maintenance on your equipment. We were told that wasn't exciting enough.</p></details>
+</section>
+
+<footer>
+  © 2026 FleetOptima™ Synergy Holdings Global Worldwide International Inc. LLC. All rights reserved, including some you have.<br>
+  This page would make George Carlin climb out of the ground and slap a marketing director.<br>
+  (the real one is at fleetoptima.org and says "$8 a machine." that's it. that's the whole pitch.)
+</footer>
+
+<div class="toast" id="toast"></div>
+<div class="chat"><div class="bubble" id="bubble"></div><div class="head" id="head">🥷<i>3</i></div></div>
+<div class="cookie" id="cookie">🍪 We use cookies, trackers, pixels, fingerprints, vibes and your microphone to enhance your synergy journey.
+  <button style="background:#00ffcc" onclick="document.getElementById('cookie').remove()">Accept All</button>
+  <button style="background:#ffcc00" onclick="document.getElementById('cookie').remove()">Accept Everything</button>
+  <button style="background:#333;color:#555;font-size:9px" onclick="alert('Are you sure? Rejecting cookies makes the Growth Ninja cry. 😢 Accepted anyway!');document.getElementById('cookie').remove()">reject</button></div>
+
+<div class="modal-bg" id="mbg"><div class="modal">
+  <span class="x" onclick="closeM()">✕</span>
+  <div style="font-size:42px">✋😭</div>
+  <h3 id="mtitle">WAIT!!! DON'T GO!!!</h3>
+  <p id="mtext">Get our FREE e-book: <b>"7 Synergy Secrets the Oil Industry Doesn't Want You to Know (Number 4 Is Oil)"</b></p>
+  <input placeholder="Your best email (or your boss's)">
+  <a class="btn" href="#" onclick="closeM();return false">YES! I WANT TO 10X MY SYNERGY 🚀</a>
+  <span class="no" onclick="closeM()">No thanks, I prefer my equipment to break and my family to be disappointed in me</span>
+</div></div>
+
+<script>
+  // fake countdown that resets forever
+  let secs = 599;
+  setInterval(() => { secs = secs <= 0 ? 599 : secs - 1; const t = String(Math.floor(secs / 60)).padStart(2, "0") + ":" + String(secs % 60).padStart(2, "0");
+    document.querySelectorAll(".cd").forEach(e => e.textContent = t); }, 1000);
+  // spots left: always 3, 2, 1, then 3 again
+  let s = 3; setInterval(() => { s = s <= 1 ? 3 : s - 1; document.querySelectorAll(".spots").forEach(e => e.textContent = s); }, 4000);
+  // fake social proof toasts
+  const people = ["Dale from Tulsa", "Brad from Brad Holdings", "A Growth Ninja", "Somebody's Uncle", "Karen from Accounting", "Your Ex", "Dale from Tulsa (again)", "A Chipper"];
+  const did = ["just upgraded to PLATINUM DIAMOND 💎", "just 10x'd their synergy 🚀", "just booked 6 discovery calls 📞", "just minted a brake job NFT ⛓️", "just thanked their mower 🧘", "just unsubscribed and was resubscribed 🔁"];
+  const toast = document.getElementById("toast");
+  setInterval(() => { toast.innerHTML = "🔔 <b>" + people[Math.random() * people.length | 0] + "</b> " + did[Math.random() * did.length | 0] + "<br><small>" + (1 + Math.random() * 9 | 0) + " seconds ago · ✅ Verified by us</small>";
+    toast.style.display = "block"; setTimeout(() => toast.style.display = "none", 3500); }, 5000);
+  // chat ninja
+  const lines = ["Hey! 👋 I'm Brad, your Growth Ninja. Quick question: are you ready to 10x?", "Just circling back on my last message from 8 seconds ago 🙂", "Per my last message... 🙂🙂", "Let's hop on a quick call! What time works, now or right now?", "Did you know 97% of mowers are under-synergized? 😱", "I'll take your silence as a yes! Sending calendar invite. 📅"];
+  let li = 0; const bubble = document.getElementById("bubble");
+  setInterval(() => { bubble.textContent = lines[li++ % lines.length]; bubble.style.display = "block"; }, 6000);
+  document.getElementById("head").onclick = () => { bubble.textContent = "Great, you clicked me! That counts as a meeting. Invoice sent. 💸"; bubble.style.display = "block"; };
+  // the modal comes back. always.
+  const msgs = [["WAIT!!! DON'T GO!!!", "Get our FREE e-book: <b>\"7 Synergy Secrets the Oil Industry Doesn't Want You to Know (Number 4 Is Oil)\"</b>"],
+    ["ARE YOU SURE???", "You were THIS close to 10x-ing. Enter your email for a free webinar: <b>\"Leveraging Leverage\"</b>"],
+    ["OK LAST CHANCE (not really)", "Join 10,000+ fleets (citation still needed) who get our daily newsletter, <b>\"Synergy Sunrise,\"</b> 4 times a day."]];
+  let mi = 0; const mbg = document.getElementById("mbg");
+  function openM() { const m = msgs[mi++ % msgs.length]; document.getElementById("mtitle").textContent = m[0]; document.getElementById("mtext").innerHTML = m[1]; mbg.style.display = "flex"; }
+  function closeM() { mbg.style.display = "none"; }
+  setTimeout(openM, 4000);
+</script>
+</body>
+</html>

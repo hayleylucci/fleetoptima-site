@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fleetoptima.org/</loc></url>
+  <url><loc>https://fleetoptima.org/propertyoptima/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/zero-turn-mower/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/walk-behind-mower/</loc></url>

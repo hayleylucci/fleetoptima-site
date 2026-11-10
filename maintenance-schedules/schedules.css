@@ -122,5 +122,17 @@ footer a { color: var(--muted); }
   .log { break-before: page; }
   .logt td { height: 26pt; border: .5pt solid #666; }
   .print-foot { margin-top: 8pt; font-size: 8.5pt; color: #444; text-align: right; }
+  /* Longer sheets (the trucks) get tighter rows so they still fit on one page. */
+  body.dense .lead { font-size: 9.5pt; }
+  body.dense h1 { font-size: 18pt; }
+  body.dense h2 { font-size: 11pt; margin: 6pt 0 2pt; }
+  body.dense table { font-size: 8.8pt; }
+  body.dense td { padding: 1.6pt 4pt; }
+  body.dense .code-note { font-size: 8.3pt; padding: 4pt 6pt; margin-top: 8pt; }
+  /* Small brand mark in the top corner of each printed page. */
+  .print-brand { display: flex; float: right; align-items: center; gap: 6pt; margin: 0 0 4pt 12pt;
+    font-size: 8.5pt; line-height: 1.2; color: #053C5E; text-align: left; }
+  .print-brand img { width: 22pt; height: 22pt; }
+  .print-brand b { font-size: 10pt; }
   a { color: #000; text-decoration: none; }
 }

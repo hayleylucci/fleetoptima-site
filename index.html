@@ -71,6 +71,15 @@
     .checks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; color: var(--navy); font-size: 15px; font-weight: 600; }
     .checks span::before { content: "✓"; color: var(--blue); margin-right: 6px; font-weight: 800; }
     .who { color: var(--muted); font-size: 15px; margin: 16px 0 0; max-width: 560px; }
+    /* Side doors to the shop and landlord pages: small, clearly tappable, never louder than Start free. */
+    .doors { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .doors a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line); color: var(--navy); font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: border-color .15s ease, color .15s ease; }
+    .doors a:hover { border-color: var(--blue); color: var(--blue); }
+    /* On phones the side doors drop to their own line together instead of one wrapping alone. */
+    .doors .br { display: none; }
+    @media (max-width: 560px) { .doors .br { display: block; flex-basis: 100%; height: 0; } }
 
     /* demo video */
     .demo { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
@@ -231,7 +240,7 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <span class="pill"><span class="dot"></span>Live now · 14 days free</span>
+        <div class="doors"><span class="pill"><span class="dot"></span>Live now · 14 days free</span><span class="br"></span><a href="/shopoptima/">🔧 For shops &rarr;</a><a href="/propertyoptima/">🏠 For landlords &rarr;</a></div>
         <h1>Maintenance, parts and costs for <span class="accent">every machine you run.</span></h1>
         <p class="lead">Not just the trucks: mowers, chippers, trailers, compressors, ovens and the saws in the shed. Scan a VIN sticker and the machine's in. FleetOptima tells you what's due, writes the work order, tracks the parts that went into it, and shows you what every machine really costs.</p>
         <div class="cta">
@@ -418,7 +427,7 @@
 <footer>
   <div class="wrap">
     <div>&copy; 2026 FleetOptima LLC &middot; <a href="mailto:support@fleetoptima.org">support@fleetoptima.org</a></div>
-    <div><a href="/maintenance-schedules/">Free maintenance schedules</a> &middot; <a href="https://beta.fleetoptima.org/#/terms">Terms of Service</a> &middot; <a href="https://beta.fleetoptima.org/#/privacy">Privacy Policy</a> &middot; <a href="https://beta.fleetoptima.org">Log in</a></div>
+    <div><a href="/shopoptima/">For shops</a> &middot; <a href="/propertyoptima/">For landlords</a> &middot; <a href="/maintenance-schedules/">Free maintenance schedules</a> &middot; <a href="https://beta.fleetoptima.org/#/terms">Terms of Service</a> &middot; <a href="https://beta.fleetoptima.org/#/privacy">Privacy Policy</a> &middot; <a href="https://beta.fleetoptima.org">Log in</a></div>
   </div>
 </footer>
 

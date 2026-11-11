@@ -2,7 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fleetoptima.org/</loc></url>
   <url><loc>https://fleetoptima.org/propertyoptima/</loc></url>
+  <url><loc>https://fleetoptima.org/shopoptima/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/air-compressor/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/vehicle-lift/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/forklift/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/welder/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/lathe-mill-cnc/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/dust-collector/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/cure-oven/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/spray-booth/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/blast-cabinet/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/bakery-oven/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/commercial-mixer/</loc></url>
+  <url><loc>https://fleetoptima.org/maintenance-schedules/walk-in-cooler-freezer/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/zero-turn-mower/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/walk-behind-mower/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/string-trimmer-leaf-blower/</loc></url>
@@ -22,11 +35,8 @@
   <url><loc>https://fleetoptima.org/maintenance-schedules/diesel-pickup/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/daily-truck-inspection/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/standby-generator/</loc></url>
-  <url><loc>https://fleetoptima.org/maintenance-schedules/air-compressor/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/hvac-unit/</loc></url>
-  <url><loc>https://fleetoptima.org/maintenance-schedules/vehicle-lift/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/pump/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/boiler/</loc></url>
-  <url><loc>https://fleetoptima.org/maintenance-schedules/walk-in-cooler-freezer/</loc></url>
   <url><loc>https://fleetoptima.org/maintenance-schedules/fire-extinguisher/</loc></url>
 </urlset>

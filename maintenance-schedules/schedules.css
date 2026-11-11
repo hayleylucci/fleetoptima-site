@@ -136,3 +136,11 @@ footer a { color: var(--muted); }
   .print-brand b { font-size: 10pt; }
   a { color: #000; text-decoration: none; }
 }
+
+/* Hub: section chips so a shop or a crew can jump to their part instead of scrolling every card. */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.jump a { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+  background: #fff; border: 1px solid #DCE4E8; color: #053C5E; font-size: 14px; font-weight: 700; text-decoration: none; }
+.jump a:hover { border-color: #019FCB; color: #019FCB; }
+.group { scroll-margin-top: 80px; }
+@media print { .jump { display: none; } }
